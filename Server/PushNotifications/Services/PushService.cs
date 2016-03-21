@@ -19,8 +19,8 @@ namespace PushNotifications.Services
             return "";
         }
 
-        private static readonly string gcmApiKey = AppSettingsHelper.GetString("gcm-api-key");
-
+        private static readonly string gcmSenderId = AppSettingsHelper.GetString("GCM-SENDER-ID");
+        private static readonly string authToken = AppSettingsHelper.GetString("AUTH-TOKEN");
         // Configuration
         GcmConfiguration _config;
 
@@ -29,7 +29,7 @@ namespace PushNotifications.Services
 
         public PushService()
         {
-            _config = new GcmConfiguration("GCM-SENDER-ID", "AUTH-TOKEN", null);
+            _config = new GcmConfiguration(gcmSenderId, authToken, null);
             _broker = new GcmServiceBroker(_config);
 
             // Wire up events
@@ -48,7 +48,7 @@ namespace PushNotifications.Services
                 {
                     dto.DeviceToken
                 },
-                Notification = JObject.Parse("{ \"body\" : \"This is body of notification\", \"tile\" : \"This is title\" }")
+                Notification = JObject.Parse("{ \"body\" : \"This is body of notification\", \"title\" : \"This is title\" }")
             });
         }
     }
