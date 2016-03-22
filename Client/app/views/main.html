@@ -1,4 +1,4 @@
-<div class="jumbotron">
+<div class="jumbotron" n>
   <h1>'Allo, 'Allo!</h1>
   <p class="lead">
     <img src="images/yeoman.png" alt="I'm Yeoman"><br>
@@ -9,6 +9,13 @@
 
 <div class="row marketing">
   <h4>HTML5 Boilerplate</h4>
+  
+  <div class="push-elements-container">
+    <input class="push-token">{{deviceToken}}</input>
+    <input ng-click="SendMeNotification()" type="submit" class="btn btn-primary"></input>
+    <input ng-click="GetTest()" type="Test Request" class="btn btn-primary"></input>
+  </div>
+
   <p>
     HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
   </p>

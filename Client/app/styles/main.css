@@ -81,3 +81,13 @@ body {
     border-bottom: 0;
   }
 }
+
+
+.push-elements-container {
+  width: 100%;
+}
+
+.push-elements-container > input {
+  width: 100%;
+  margin-bottom: 10px;
+}

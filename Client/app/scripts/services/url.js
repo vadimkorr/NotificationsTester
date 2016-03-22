@@ -11,7 +11,8 @@ angular.module('pushClientApp')
   .factory('url', function () {
     
     var service = {};
-    var receiveNotification = "api/push/receiveNotification/";  
+    var receiveNotification = "api/push/ReceiveNotification/"; 
+    var test = "api/push/test/"; 
 
     function getFullUrl(baseUrl, restUrl) {
         if (baseUrl === undefined) {
@@ -21,10 +22,13 @@ angular.module('pushClientApp')
         }
     }
 
-    service.baseUrl = "http://10.50.18.47/";
+    service.baseUrl = "http://192.168.50.107:61601/";
 
     service.getReceiveNotificationUrl = function () {
         return getFullUrl(service.baseUrl, receiveNotification);
+    };
+    service.getTestUrl = function () {
+        return getFullUrl(service.baseUrl, test);
     };
 
     return service;
