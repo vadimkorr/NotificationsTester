@@ -1,19 +1,20 @@
-angular.module('pushClientApp').run(function (push) {
+angular.module('pushClientApp').run(function (push, $log) {
     var _push;
 
-    function InitPush() {
+    var InitPush = function() {
         
         _push = PushNotification.init({
             android: {
-                senderID: "pushtester-1257"
+                senderID: "405736466992"
             }
         });
 
         _push.on('registration', function(data) {
             // data.registrationId
             var deviceCreds = {
-                PushToken: data.regid
+                PushToken: data.registrationid
             }
+            $log.log(data);
             push.onRegistration(deviceCreds);
         });
 
@@ -33,9 +34,9 @@ angular.module('pushClientApp').run(function (push) {
         });
     }
 
-    function onDeviceReady() {
+    //InitPush();
+    /*function onDeviceReady() {
         InitPush();
     }
-
-    document.addEventListener('deviceready', onDeviceReady);
+    document.addEventListener('deviceready', onDeviceReady);*/
 });

@@ -22,7 +22,7 @@ angular.module('pushClientApp')
         }
     }
 
-    service.baseUrl = "http://192.168.50.107:61601/";
+    service.baseUrl = "http://192.168.137.1:61601/";
 
     service.getReceiveNotificationUrl = function () {
         return getFullUrl(service.baseUrl, receiveNotification);

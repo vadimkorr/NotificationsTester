@@ -14,6 +14,41 @@ angular.module('pushClientApp')
     var service = {};
 
     service.deviceCreds = {};
+    
+    service.register = function() {
+        InitPush();
+        //document.addEventListener('deviceready', InitPush, false);
+    }
+    
+    var InitPush = function() {
+        _push = PushNotification.init({
+            android: {
+                senderID: "405736466992"
+            }
+        });
+        _push.on('registration', function(data) {
+            // data.registrationId
+            var deviceCreds = {
+                PushToken: data.registrationId
+            }
+            $log.log(data);
+            service.onRegistration(deviceCreds);
+        });
+        _push.on('notification', function(data) {
+            // data.message,
+            // data.title,
+            // data.count,
+            // data.sound,
+            // data.image,
+            // data.additionalData
+            service.onNotification(data);
+        });
+        _push.on('error', function(e) {
+            // e.message
+            service.onError(e);
+        });
+    }
+    
     service.onRegistration = function(data) {
         service.deviceCreds = {
             PushToken: data.PushToken
@@ -29,14 +64,25 @@ angular.module('pushClientApp')
     }
     
     service.SendMeNotification = function() {
-        var onSuccess = function() {alert("Success");}
-        var onError = function(e) {alert(e.Message);}
-        $http.post(url.getReceiveNotificationUrl(), {DeviceToken: service.deviceCreds.PushToken}).then(onSuccess, onError);
+        var onSuccess = function() {
+            alert("Success");
+        }
+        var onError = function(e) {
+            alert(e.Message);
+        }
+        var dto = {
+            DeviceToken: service.deviceCreds.PushToken
+        };
+        $http.post(url.getReceiveNotificationUrl(), dto).then(onSuccess, onError);
     }
 
     service.GetTest = function() {
-        var onSuccess = function(data) {alert(data);}
-        var onError = function(e) {alert(e.Message);}
+        var onSuccess = function(data) {
+            alert(data.data);
+        }
+        var onError = function(e) {
+            alert(e.Message);
+        }
         $http.get(url.getTestUrl() + "World").then(onSuccess, onError);
     }
 

@@ -11,9 +11,10 @@
   <h4>HTML5 Boilerplate</h4>
   
   <div class="push-elements-container">
-    <input class="push-token">{{deviceToken}}</input>
-    <input ng-click="SendMeNotification()" type="submit" class="btn btn-primary"></input>
-    <input ng-click="GetTest()" type="Test Request" class="btn btn-primary"></input>
+    <button ng-click="RegisterForGCM()" class="btn btn-primary">Register For GCM</button>
+    <input class="push-token" ng-model="deviceToken"></input>
+    <button ng-click="SendMeNotification()" class="btn btn-primary">Send Me Notification</button>
+    <button ng-click="GetTest()" class="btn btn-primary">Test Request</button>
   </div>
 
   <p>
