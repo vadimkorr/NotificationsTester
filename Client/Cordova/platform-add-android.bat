@@ -1,0 +1,1 @@
+phonegap platform add android & PAUSE

@@ -1,0 +1,1 @@
+phonegap run browser -d & PAUSE

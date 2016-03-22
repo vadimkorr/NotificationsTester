@@ -3,3 +3,9 @@
 /.tmp
 /.sass-cache
 /bower_components
+
+/Cordova/platforms/*
+/Cordova/www/*
+!/Cordova/www/icons
+/Cordova/plugins/*
+!/Cordova/plugins/plugins.txt

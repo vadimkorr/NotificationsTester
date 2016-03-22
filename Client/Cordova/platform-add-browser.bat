@@ -1,0 +1,1 @@
+phonegap platform add browser & PAUSE
