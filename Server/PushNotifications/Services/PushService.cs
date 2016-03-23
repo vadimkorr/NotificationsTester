@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -42,6 +43,7 @@ namespace PushNotifications.Services
         public void Send(PushDto dto)
         {
             // Queue a notification to send
+            Thread.Sleep(2000); //Hide application in smartphone and wait for notification
             _broker.QueueNotification(new GcmNotification
             {
                 RegistrationIds = new List<string>

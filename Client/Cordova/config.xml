@@ -30,4 +30,5 @@
     </plugin>
     <hook src="scripts/copy-app-files.js" type="after_prepare" />
     <hook src="scripts/bower-install.bat" type="after_prepare" />
+    <engine name="android" spec="^4.0.2" />
 </widget>

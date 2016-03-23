@@ -13,12 +13,13 @@ angular.module('pushClientApp')
     
     var service = {};
 
-    service.deviceCreds = {};
+    service.deviceCreds = {
+        PushToken: ""
+    };
 
     service.onRegistration = function(data) {
-        service.deviceCreds = {
-            PushToken: data.PushToken
-        }
+        service.deviceCreds.PushToken = data.PushToken;
+        $apply(); 
     }
     
     service.onNotification = function(data) {
