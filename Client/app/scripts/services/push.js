@@ -14,41 +14,7 @@ angular.module('pushClientApp')
     var service = {};
 
     service.deviceCreds = {};
-    
-    service.register = function() {
-        InitPush();
-        //document.addEventListener('deviceready', InitPush, false);
-    }
-    
-    var InitPush = function() {
-        _push = PushNotification.init({
-            android: {
-                senderID: "405736466992"
-            }
-        });
-        _push.on('registration', function(data) {
-            // data.registrationId
-            var deviceCreds = {
-                PushToken: data.registrationId
-            }
-            $log.log(data);
-            service.onRegistration(deviceCreds);
-        });
-        _push.on('notification', function(data) {
-            // data.message,
-            // data.title,
-            // data.count,
-            // data.sound,
-            // data.image,
-            // data.additionalData
-            service.onNotification(data);
-        });
-        _push.on('error', function(e) {
-            // e.message
-            service.onError(e);
-        });
-    }
-    
+
     service.onRegistration = function(data) {
         service.deviceCreds = {
             PushToken: data.PushToken
@@ -56,11 +22,11 @@ angular.module('pushClientApp')
     }
     
     service.onNotification = function(data) {
-        alert(data);
+        alert(data.data.Message);
     }
     
     service.onError = function(data) {
-        alert(data);
+        alert(data.data.Message);
     }
     
     service.SendMeNotification = function() {
@@ -68,7 +34,7 @@ angular.module('pushClientApp')
             alert("Success");
         }
         var onError = function(e) {
-            alert(e.Message);
+            alert(e.data.Message);
         }
         var dto = {
             DeviceToken: service.deviceCreds.PushToken
@@ -85,7 +51,6 @@ angular.module('pushClientApp')
         }
         $http.get(url.getTestUrl() + "World").then(onSuccess, onError);
     }
-
 
     return service;
 });

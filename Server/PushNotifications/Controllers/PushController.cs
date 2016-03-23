@@ -11,11 +11,12 @@ namespace PushNotifications.Controllers
 {
     public class PushController : ApiController
     {
-        PushService _pushService = new PushService();
+        PushService _pushService;
         
         [HttpPost]
         public void ReceiveNotification(PushDto dto)
         {
+            _pushService = new PushService();
             _pushService.Send(dto);
         }
 

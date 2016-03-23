@@ -24,8 +24,4 @@ angular.module('pushClientApp')
     $scope.GetTest = function() {
     	push.GetTest(); 
     }
-    
-    $scope.RegisterForGCM = function() {
-        push.register();
-    }
   });

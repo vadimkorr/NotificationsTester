@@ -1,0 +1,9 @@
+Issue: 
+	[INSTALL_FAILED_CONFLICTING_PROVIDER]
+
+Solution:
+ 	Add the following to build.gradle:
+	android {
+    		defaultConfig {
+        		applicationId "io.cordova.pushtester"
+    		}
