@@ -1,30 +1,8 @@
-<div class="jumbotron" n>
-  <h1>'Allo, 'Allo!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#/">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
-</div>
-
-<div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  
+<div class="jumbotron">
   <div class="push-elements-container">
-    <input class="push-token" ng-model="deviceToken"></input>
-    <button ng-click="SendMeNotification()" class="btn btn-primary">Send Me Notification</button>
-    <button ng-click="GetTest()" class="btn btn-primary">Test Request</button>
+    <label for="RegId" class="reg-id-label" >Device GCM Registration Id:</label>
+    <input type="email" ng-model="deviceToken" class="form-control" id="RegId" placeholder="Registration Id">
+    <button ng-click="SendMeNotification()" class="push-element-btn btn btn-lg btn-primary">Send Me Notification</button>
+    <button ng-click="GetTest()" class="push-element-btn btn btn-lg btn-primary">Test Request</button>
   </div>
-
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
-
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
-
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
 </div>

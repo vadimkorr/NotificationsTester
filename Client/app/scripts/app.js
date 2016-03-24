@@ -37,8 +37,3 @@ angular
 
       $httpProvider.defaults.headers.common['Content-type'] = "application/json";
   });
-
-
-      
-
-    

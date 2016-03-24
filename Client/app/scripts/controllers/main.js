@@ -15,17 +15,17 @@ angular.module('pushClientApp')
       'Karma'
     ];
 
-    $scope.deviceToken = push.deviceCreds.PushToken;
-    $scope.$watch(function() { 
-            return push.deviceCreds; 
-        }, 
-        function(newValue, oldValue) {
-            $log.log("push.deviceCreds.PushToken = " + push.deviceCreds.PushToken);
-            $scope.deviceToken = push.deviceCreds.PushToken;
-        }, true);
+    var updatePushToken = function() {
+      $log.info('updatePushToken from observer');
+      $scope.deviceToken = push.getDeviceCreds().PushToken;
+      $scope.$apply();
+    };
+
+    push.registerObserverCallback(updatePushToken);
 
     $scope.SendMeNotification = function() {
-    	push.SendMeNotification();    	
+      push.SendMeNotification(); 
+      alert("Hide an app and wait about 2 seconds for notification.");   	
     }
 
     $scope.GetTest = function() {

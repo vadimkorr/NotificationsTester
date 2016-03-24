@@ -8,6 +8,7 @@
         Vadim
     </author>
     <content src="index.html" />
+    <icon src="www/images/logo.png" />
     <plugin name="cordova-plugin-whitelist" spec="1" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -30,5 +31,5 @@
     </plugin>
     <hook src="scripts/copy-app-files.js" type="after_prepare" />
     <hook src="scripts/bower-install.bat" type="after_prepare" />
-    <engine name="android" spec="^4.0.2" />
+    <engine name="android" spec="~4.1.1" />
 </widget>
