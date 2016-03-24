@@ -23,7 +23,7 @@ namespace PushNotifications.Controllers
         [HttpGet]
         public string Test(string id)
         {
-            return "Hi, " + id + "!";
+            return "Hello, " + id + "!";
         }
     }
 }

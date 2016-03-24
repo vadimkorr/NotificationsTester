@@ -61,7 +61,7 @@ angular.module('pushClientApp')
 
     service.GetTest = function() {
         var onSuccess = function(data) {
-            alert(data.data.Message);
+            alert(data.data);
         }
         var onError = function(e) {
             alert(e.Message || "Something went wrong");
